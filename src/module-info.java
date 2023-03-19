@@ -6,4 +6,5 @@
  *
  */
 module JogodeCartasDemo {
+	requires java.desktop;
 }
