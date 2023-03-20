@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -36,6 +37,7 @@ public class Game {
 			playerHand.add(hand);
 		}
 	}
+	
 	
 	public void start(Game game) {
 		UnoCard card = deck.drawCard();
@@ -72,5 +74,117 @@ public class Game {
 		
 		stockPile.add(card);
 		
+	}
+	
+	
+	public UnoCard getTopCard() {
+		return new UnoCard(validColor, validValue);
+	}	
+	
+	
+	public ImageIcon getTopImageIcon() {
+		return new ImageIcon(validColor + "-" + validValue + ".png");	
+	}
+	
+	
+	public boolean isGameOver(){
+		for (String player : this.playersIds) {
+			if (hasEmptyHand(player)) {
+				return true;
+			}
+		return false;
+		}
+	}
+	
+	
+	public String getCurrentPlayer() {
+		return this.playersIds[this.currentPlayer];
+	}
+	
+	
+	public String getPreviousPlayer() {
+		int index = this.currentPlayer - 1;
+		if (index == -1) {
+			index = playersIds.length - 1;
+		}
+		return playersIds[index];
+	}
+	
+	
+	public String[] getPlayers() {
+		return playersIds;
+	}
+	
+	
+	public ArrayList<UnoCard> getPlayerHand(String pid){
+		int index = Arrays.asList(playersIds).indexOf(pid);
+		return playerHand.get(index);
+	}
+	
+	
+	public int getPlayerHandSize(String pid) {
+		return getPlayerHand(pid).size();
+	}
+	
+	public UnoCard getPlayerCard(String pid, int choice) {
+		ArrayList<UnoCard> hand = getPlayerHand(pid);
+		return hand.get(choice);
+	}
+	
+	
+	public boolean hasEmptyHand(String pid) {
+		return getPlayerHand(pid).isEmpty();
+	}
+	
+	
+	public boolean validCardPlayer() {
+		return card.getColor() == validColor  || card.getValue() == validValue;
+	}
+	
+	public void checkPlayerTurn(String pid) throws InvalidPlayerException{
+		if (this.playersIds[this.currentPlayer] != pid) {
+			throw new InvalidPlayerException("Nasceu de 7 meses?\nNão é o turno do" + pid +"°");
+		}
+	}
+	
+	
+	public void submitDraw(String pid) throws InvalidPlayerException{
+		checkPlayerTurn(pid);
+		
+		if(deck.isEmpty()) {
+			deck.replaceDeckWith(stockPile);
+			deck.shuffle(); 
+		}
+		
+		getPlayerHand(pid).add(deck.drawCard());
+		if(gameDirection == false) {
+			currentPlayer = (currentPlayer + 1) % playersIds.length;
+		}
+		else if(gameDirection == true) {
+			currentPlayer = (currentPlayer - 1) % playersIds.length;
+			if (currentPlayer == -1) {
+				currentPlayer = playersIds.length - 1;
+			}
+		}
+	}
+	
+	
+	public void setCardColor(UnoCard.Color color) {
+		validColor = color;	
+	}
+	
+	
+}
+
+class InvalidPlayerTurnException extends Exception {
+	String playerId;
+	
+	public InvalidPlayerTurnException(String message, String pid) {
+		super(message);
+		playerId = pid;
+	}
+	
+	public String getPid() {
+		return playerId
 	}
 }
