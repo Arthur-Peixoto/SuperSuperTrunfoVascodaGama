@@ -92,8 +92,8 @@ public class Game {
 			if (hasEmptyHand(player)) {
 				return true;
 			}
-		return false;
 		}
+		return false;
 	}
 	
 	
@@ -137,18 +137,18 @@ public class Game {
 	}
 	
 	
-	public boolean validCardPlayer() {
+	public boolean validCardPlayer(UnoCard card) {
 		return card.getColor() == validColor  || card.getValue() == validValue;
 	}
 	
-	public void checkPlayerTurn(String pid) throws InvalidPlayerException{
+	public void checkPlayerTurn(String pid) throws InvalidPlayerTurnException{
 		if (this.playersIds[this.currentPlayer] != pid) {
-			throw new InvalidPlayerException("Nasceu de 7 meses?\nNão é o turno do" + pid +"°");
+			throw new InvalidPlayerTurnException("Nasceu de 7 meses?\nNão é o turno do" + pid +"°", this.playersIds[this.currentPlayer] );
 		}
 	}
 	
 	
-	public void submitDraw(String pid) throws InvalidPlayerException{
+	public void submitDraw(String pid) throws InvalidPlayerTurnException{
 		checkPlayerTurn(pid);
 		
 		if(deck.isEmpty()) {
@@ -174,6 +174,17 @@ public class Game {
 	}
 	
 	
+	public void submitPlayerCard(String pid,UnoCard card, UnoCard.Color declaredColor) throws InvalidPlayerTurnException, InvalidColorSubmissionException , InvalidValueSubmissionException {
+		checkPlayerTurn(pid);
+		
+		ArrayList<UnoCard> pHand = getPlayerHand(pid);
+		
+		if(!validCardPlayer(card)) {
+			if(card.getColor() == UnoCard.Color.Colore) {
+				
+			}
+		}
+	}
 }
 
 class InvalidPlayerTurnException extends Exception {
@@ -185,6 +196,27 @@ class InvalidPlayerTurnException extends Exception {
 	}
 	
 	public String getPid() {
-		return playerId
+		return playerId;
 	}
 }
+
+class InvalidColorSubmissionException extends Exception {
+	private UnoCard.Color expected;
+	private UnoCard.Color actual;
+	
+	private InvalidColorSubmissionException(String message, UnoCard.Color actual, UnoCard.Color expected) {
+	this.actual  = actual;
+	this.expected = expected;
+	}
+}
+
+class InvalidValueSubmissionException extends Exception {
+	private UnoCard.Value expected;
+	private UnoCard.Value actual;
+	
+	private InvalidValueSubmissionException(String message, UnoCard.Value actual, UnoCard.Value expected) {
+	this.actual  = actual;
+	this.expected = expected;
+	}
+}
+
