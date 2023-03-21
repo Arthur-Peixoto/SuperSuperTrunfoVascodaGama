@@ -181,7 +181,98 @@ public class Game {
 		
 		if(!validCardPlayer(card)) {
 			if(card.getColor() == UnoCard.Color.Colore) {
-				
+				validColor = card.getColor();
+				validValue = card.getValue();
+			}
+			if(card.getColor() != validColor) {
+				JLabel message = new JLabel("xiii, jogada inválida\nEsperava-se :" + validColor + "e foi recebido: " + card.getColor());
+				message.setFont(new Font("Arial", Font.BOLD, 48));
+				JOptionPane.showMessageDialog(null, message);
+				throw new InvalidColorSubmissionException(message, actual, expected);
+			}
+			else if(card.getValue() !=  validValue) {
+				JLabel message2 = new JLabel("xiii, jogada inválida\nEsperava-se :" + validValue + "e foi recebido: " + card.getValue());
+				message2.setFont(new Font("Arial", Font.BOLD, 48));
+				JOptionPane.showMessageDialog(null, message2);
+				throw new InvalidValueSubmissionException(message2, actual, expected);
+			}
+		}
+		
+		
+		pHand.remove(card);
+		
+		if(hasEmptyHand(this.playersIds[currentPlayer])) {
+			JLabel message3 = new JLabel("aveeeee" + this.playersIds[currentPlayer] + "esse maluco aí ganhou o jogo\n Deus abençoe o vasco");
+			message3.setFont(new Font("Arial", Font.BOLD, 48));
+			JOptionPane.showMessageDialog(null, message3);
+			System.exit(0);
+		}
+		
+		validColor = card.getColor();
+		validValue = card.getValue();
+		
+		stockPile.add(card);
+		
+		if(gameDirection == false) {
+			currentPlayer = (currentPlayer + 1) % playersIds.length;	
+		}
+		else if(gameDirection == true) {
+			currentPlayer = (currentPlayer - 1) % playersIds.length;	
+			if (currentPlayer == -1) {
+				currentPlayer = playersIds.length - 1;
+			}
+		}
+		
+		if (card.getColor() == UnoCard.Color.Colore) {
+			validColor = declaredColor;
+		}
+		
+		if (card.getValue() == UnoCard.Value.DessinerDeux) {
+			pid = playersIds[currentPlayer];
+			getPlayerHand(pid).add(deck.drawCard());
+			getPlayerHand(pid).add(deck.drawCard());
+			JLabel message = new JLabel(pid + "recebe duas cartas do gigante");
+		}
+		
+		if (card.getValue() == UnoCard.Value.Libre_Quatre) {
+			pid = playersIds[currentPlayer];
+			getPlayerHand(pid).add(deck.drawCard());
+			getPlayerHand(pid).add(deck.drawCard());
+			getPlayerHand(pid).add(deck.drawCard());
+			getPlayerHand(pid).add(deck.drawCard());
+			JLabel message = new JLabel(pid + "recebe quatro cartas do gigante");
+		}
+		
+		if(card.getValue() == UnoCard.Value.Sauter) {
+			JLabel message = new JLabel(playersIds[currentPlayer] + "\nfoi de arrasta pra cima nessa rodada");
+			message.setFont(new Font("Arial", Font.BOLD, 48));
+			JOptionPane.showMessageDialog(null, message);
+			if(gameDirection == false) {
+				currentPlayer = (currentPlayer + 1) % playersIds.length;	
+			}
+			else if(gameDirection == true) {
+				currentPlayer = (currentPlayer - 1) % playersIds.length;	
+				if (currentPlayer == -1) {
+					currentPlayer = playersIds.length - 1;
+				}
+			}
+		}
+		
+		if(card.getValue() == UnoCard.Value.Inverse) {
+			JLabel message = new JLabel(pid + "inverteu a ordem do jogo");
+			message.setFont(new Font("Arial", Font.BOLD, 48));
+			JOptionPane.showMessageDialog(null, message);
+			
+			gameDirection ^= true;
+			
+			if(gameDirection == true) {
+				currentPlayer = (currentPlayer - 2) % playersIds.length;	
+				if (currentPlayer == -1) {
+					currentPlayer = playersIds.length - 1;
+				}
+				if (currentPlayer == -2) {
+					currentPlayer = playersIds.length - 2;
+				}
 			}
 		}
 	}
