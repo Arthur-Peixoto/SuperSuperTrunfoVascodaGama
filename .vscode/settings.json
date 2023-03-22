@@ -1,0 +1,26 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "res"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.base.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.controls.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.fxml.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.graphics.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.media.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.swing.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx.web.jar",
+        "c:\\Users\\vinic\\OneDrive\\Área de Trabalho\\Faculdade\\Estrutura de Dados\\javafx-sdk-17.0.6\\lib\\javafx-swt.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.base.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.controls.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.fxml.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.graphics.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.media.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.swing.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx.web.jar",
+        "c:\\JAVAFX\\javafx-sdk-17.0.6\\lib\\javafx-swt.jar"
+    ]
+}
