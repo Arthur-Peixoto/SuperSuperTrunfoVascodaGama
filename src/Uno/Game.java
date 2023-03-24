@@ -188,13 +188,13 @@ public class Game {
 				JLabel message = new JLabel("xiii, jogada inválida\nEsperava-se :" + validColor + "e foi recebido: " + card.getColor());
 				message.setFont(new Font("Arial", Font.BOLD, 48));
 				JOptionPane.showMessageDialog(null, message);
-				throw new InvalidColorSubmissionException(message, actual, expected);
+				throw new InvalidColorSubmissionException("xiii, jogada inválida\nEsperava-se: " + validColor + " e foi recebido: " + card.getColor(), card.getColor(), validColor);
 			}
 			else if(card.getValue() !=  validValue) {
 				JLabel message2 = new JLabel("xiii, jogada inválida\nEsperava-se :" + validValue + "e foi recebido: " + card.getValue());
 				message2.setFont(new Font("Arial", Font.BOLD, 48));
 				JOptionPane.showMessageDialog(null, message2);
-				throw new InvalidValueSubmissionException(message2, actual, expected);
+				throw new InvalidValueSubmissionException("xiii, jogada inválida\nEsperava-se :" + validValue + "e foi recebido: " + card.getValue(), card.getValue(), validValue);
 			}
 		}
 		
@@ -295,7 +295,7 @@ class InvalidColorSubmissionException extends Exception {
 	private UnoCard.Color expected;
 	private UnoCard.Color actual;
 	
-	private InvalidColorSubmissionException(String message, UnoCard.Color actual, UnoCard.Color expected) {
+	public InvalidColorSubmissionException(String message, UnoCard.Color actual, UnoCard.Color expected) {
 	this.actual  = actual;
 	this.expected = expected;
 	}
@@ -305,7 +305,7 @@ class InvalidValueSubmissionException extends Exception {
 	private UnoCard.Value expected;
 	private UnoCard.Value actual;
 	
-	private InvalidValueSubmissionException(String message, UnoCard.Value actual, UnoCard.Value expected) {
+	public InvalidValueSubmissionException(String message, UnoCard.Value actual, UnoCard.Value expected) {
 	this.actual  = actual;
 	this.expected = expected;
 	}
