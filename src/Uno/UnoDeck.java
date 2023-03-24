@@ -22,7 +22,7 @@ public class UnoDeck {
 			
 			cards[cardsInDeck++] = new UnoCard(color, UnoCard.Value.getValue(0)); 
 			
-			for(int j = 0; j < 10; j++) {
+			for(int j = 1; j < 10; j++) {
 				cards[cardsInDeck++] = new UnoCard(color, UnoCard.Value.getValue(j));
 				cards[cardsInDeck++] = new UnoCard(color, UnoCard.Value.getValue(j));
 			}
@@ -86,7 +86,7 @@ public class UnoDeck {
 			throw new IllegalArgumentException("xii, Não é possível lançar" + m + "cartas");
 		}
 		
-		if (m < cardsInDeck) {
+		if (m > cardsInDeck) {
 			throw new IllegalArgumentException("xii, Não é possível lançar" + m + "cartas");
 		}
 		
