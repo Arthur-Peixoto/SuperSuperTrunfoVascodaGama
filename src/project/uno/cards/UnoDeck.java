@@ -32,14 +32,14 @@ public class UnoDeck {
                 deck.push(new UnoCard(color, value));
             }
 
-            // ADICIONAR AS CARTAS CORINGA E +4
-            UnoCard.Value[] wilds = new UnoCard.Value[]{UnoCard.Value.Wild,UnoCard.Value.WildFour};
-            for(UnoCard.Value wild : wilds){
-                for(int m=0;m<4;m++){
-                    deck.push(new UnoCard(UnoCard.Color.Wild, wild));
-                }
-            }
+        }
 
+        // ADICIONAR AS CARTAS CORINGA E +4
+        UnoCard.Value[] wilds = new UnoCard.Value[]{UnoCard.Value.Wild,UnoCard.Value.WildFour};
+        for(UnoCard.Value wild : wilds){
+            for(int m=0;m<4;m++){
+                deck.push(new UnoCard(UnoCard.Color.Wild, wild));
+            }
         }
     }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.uno.controllers.PickColorFrame">
+   <children>
+      <Button fx:id="redButton" layoutX="170.0" layoutY="121.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="Vermelho" />
+      <Button fx:id="blueButton" layoutX="170.0" layoutY="199.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="Azul" />
+      <Button fx:id="greenButton" layoutX="170.0" layoutY="282.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="Verde" />
+      <Button fx:id="yellowButton" layoutX="170.0" layoutY="358.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="Amarelo" />
+      <Text layoutX="132.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha sua cor">
+         <font>
+            <Font name="Yu Gothic Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

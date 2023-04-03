@@ -11,4 +11,8 @@ public class MenuController {
     public void exitGame(){
         System.exit(0);
     }
+
+    public void buttonTest(){
+
+    }
 }

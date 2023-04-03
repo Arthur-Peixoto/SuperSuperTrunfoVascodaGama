@@ -12,7 +12,7 @@ public class Uno extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("UNO - EdiÃ§Ã£o Vasco");
+        stage.setTitle("UNO - Edição Vasco");
         setPalco(stage);
         menuScreen();
     }
@@ -31,6 +31,14 @@ public class Uno extends Application{
 
     public static void addPlayersScreen() throws Exception{
         FXMLLoader loader = new FXMLLoader(Uno.class.getResource("add_players.fxml"));
+        Pane menuScreen = loader.load();
+        Scene scene = new Scene(menuScreen);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void gameStage() throws Exception{
+        FXMLLoader loader = new FXMLLoader(Uno.class.getResource("game_stage.fxml"));
         Pane menuScreen = loader.load();
         Scene scene = new Scene(menuScreen);
         stage.setScene(scene);

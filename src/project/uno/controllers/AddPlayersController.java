@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import project.uno.main.Uno;
 
 public class AddPlayersController {
     @FXML private TextField playerName;
@@ -16,7 +17,7 @@ public class AddPlayersController {
     @FXML private Label pidTwoLabel;
     @FXML private Label pidThreeLabel;
     @FXML private Label pidFourLabel;
-    public List<String> playerIds = new ArrayList<String>();
+    public static List<String> playerIds = new ArrayList<String>();
 
     public String[] getPids(){
         String[] pids = playerIds.toArray(new String[playerIds.size()]);
@@ -24,12 +25,6 @@ public class AddPlayersController {
     }
 
     public void savePlayer(){
-
-        if(playerIds.size() > 0 && playerIds.size() < 5){
-            JLabel message = new JLabel("Jogador Salvo!");
-            JOptionPane.showMessageDialog(null, message);
-            playerName.setText("");
-        }
 
         if(playerName.getText().isEmpty()){
             JLabel message = new JLabel("Por favor, insira um nome!");
@@ -69,16 +64,20 @@ public class AddPlayersController {
             playerName.setText("");
         }
 
+        if(playerIds.size() > 0 && playerIds.size() < 5){
+            JLabel message = new JLabel("Jogador Salvo!");
+            JOptionPane.showMessageDialog(null, message);
+            playerName.setText("");
+        }
+
     }
 
-    public void doneButton(){
+    public void doneButton() throws Exception{
         if(playerIds.size() == 1 || playerIds.size() == 0){
             JLabel message = new JLabel("Deve haver 2-4 jogadores!");
             JOptionPane.showMessageDialog(null, message);
         }
-
-        // FALTA FINALIZAR
-        // this.dispose();
-        // new GameStage(playerIds).setVisible(true);
+       
+        Uno.gameStage();
     }
 }

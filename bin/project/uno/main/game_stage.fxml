@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.uno.controllers.GameStageController">
+   <children>
+      <Button fx:id="btt1" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardOne" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt2" contentDisplay="GRAPHIC_ONLY" layoutX="103.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardTwo" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt3" contentDisplay="GRAPHIC_ONLY" layoutX="193.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardThree" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt4" contentDisplay="GRAPHIC_ONLY" layoutX="285.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardFour" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt5" contentDisplay="GRAPHIC_ONLY" layoutX="377.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardFive" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt6" contentDisplay="GRAPHIC_ONLY" layoutX="460.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardSix" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt7" contentDisplay="GRAPHIC_ONLY" layoutX="550.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardSeven" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt8" contentDisplay="GRAPHIC_ONLY" layoutX="638.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardEight" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt9" contentDisplay="GRAPHIC_ONLY" layoutX="726.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardNine" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt10" contentDisplay="GRAPHIC_ONLY" layoutX="817.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardTen" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt11" contentDisplay="GRAPHIC_ONLY" layoutX="910.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardEleven" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt12" contentDisplay="GRAPHIC_ONLY" layoutX="997.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardTwelve" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt13" contentDisplay="GRAPHIC_ONLY" layoutX="1086.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardThirteen" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt14" contentDisplay="GRAPHIC_ONLY" layoutX="1168.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardFourteen" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="btt15" contentDisplay="GRAPHIC_ONLY" layoutX="1251.0" layoutY="627.0" mnemonicParsing="false" onAction="#cardFifteen" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Label fx:id="playerName" layoutX="14.0" layoutY="553.0" prefHeight="56.0" prefWidth="460.0">
+         <font>
+            <Font name="Yu Gothic Bold" size="32.0" />
+         </font>
+      </Label>
+      <Button layoutX="1207.0" layoutY="553.0" mnemonicParsing="false" onAction="#drawCardBtt" prefHeight="47.0" prefWidth="113.0" text="Puxar Carta">
+         <font>
+            <Font name="Yu Gothic Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="cardBack" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="69.0" text="Button" />
+      <Button fx:id="pileCard" contentDisplay="GRAPHIC_ONLY" layoutX="103.0" layoutY="14.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="69.0" text="Button" />
+   </children>
+</Pane>

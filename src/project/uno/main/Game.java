@@ -27,6 +27,7 @@ public class Game {
 
     public Game(String[] pids){
         deck = new UnoDeck();
+        deck.reset();
         deck.shuffle();
         stockPile = new ArrayList<UnoCard>();
 
